@@ -21,7 +21,7 @@ export default function ToursGrid({
   toursData,
 }: ToursGridProps) {
   return (
-    <div style={{ padding: "2rem 0"}}>
+    <div style={{ padding: "3rem 0"}}>
       <GridCarousel
       title={title}
       subtitle={subtitle}
