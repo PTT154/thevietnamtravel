@@ -41,7 +41,7 @@ export default async function LandingPage() {
 
       <Container
         size="xl"
-        pt={"3rem"}
+        py={"3rem"}
         classNames={{ root: classes.landingContainer }}
       >
         <SectionHeader

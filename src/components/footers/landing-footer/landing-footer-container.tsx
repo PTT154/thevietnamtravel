@@ -73,7 +73,7 @@ export default function LandingFooterContainer() {
               Vietnam Travel © 2025 by VinaUp®
             </Text>
             <Link href="/" className={classes.bottomLink}>
-              <Text>Travel guides - Home</Text>
+              <Text fz="1.1rem">Travel guides - Home</Text>
               <GoHome size={20} />
             </Link>
           </Group>

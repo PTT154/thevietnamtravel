@@ -84,7 +84,6 @@ export const MOCK_TOUR_CATEGORIES: Pick<
     mainImageUrl:
       "https://images.unsplash.com/photo-1711367798865-ba7d9b534758?q=80&w=1170&auto=format&fit=crop",
   },
-  // Các phần còn lại giữ nguyên hoặc lặp lại các ảnh trên nếu cần
   {
     id: "6",
     title: "Biking tours",

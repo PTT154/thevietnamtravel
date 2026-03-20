@@ -10,18 +10,26 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ title, subtitle, href }: SectionHeaderProps) {
   return (
-    <Group justify="space-between" align="flex-end" mb="xl">
-      <Stack gap={4}>
+    <Stack gap={4} mb="1.5rem" className={classes.headerContainer}>
+      {/* Title and Link */}
+      <Group justify="space-between" align="center">
         <Title order={2} className={classes.title}>
           {title}
         </Title>
-        {subtitle && (
-          <Text className={classes.subtitle}>
-            {subtitle}
-          </Text>
+        
+        {href && (
+          <div className={classes.seeAll}>
+            <SeeAllLink href={href} />
+          </div>
         )}
-      </Stack>
-      {href && <SeeAllLink href={href} />}
-    </Group>
+      </Group>
+
+      {/* Subtitle */}
+      {subtitle && (
+        <Text className={classes.subtitle}>
+          {subtitle}
+        </Text>
+      )}
+    </Stack>
   );
 }

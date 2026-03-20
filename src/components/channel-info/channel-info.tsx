@@ -34,7 +34,7 @@ export default function ChannelInfoSection({
   const imageAspectRatio = `${imageWidth} / ${imageHeight}`;
 
   return (
-    <Box component="section" pb="xl">
+    <Box component="section">
       <Grid align="center">
         {/* Cột trái (Nội dung) */}
         <Grid.Col span={{ base: 12, md: 9 }}>

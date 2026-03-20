@@ -37,8 +37,8 @@ export default function GridCarousel<TourCategoryItem extends { id: string }>({
 }: GridCarouselProps<TourCategoryItem> ) {
   const emblaRef = useRef<EmblaCarouselType | null>(null);
 
-  const handlePrev = useCallback(() => emblaRef.current?.scrollPrev(), []);
-  const handleNext = useCallback(() => emblaRef.current?.scrollNext(), []);
+  const handleRight = useCallback(() => emblaRef.current?.scrollPrev(), []);
+  const handleLeft = useCallback(() => emblaRef.current?.scrollNext(), []);
 
   const columns: TourCategoryItem[][] = [];
   for (let i = 0; i < data.length; i += rows) {
@@ -55,14 +55,14 @@ export default function GridCarousel<TourCategoryItem extends { id: string }>({
           <button
             className={classes.navBtn}
             aria-label="Previous"
-            onClick={handlePrev}
+            onClick={handleLeft}
           >
             <MdChevronLeft size={20} />
           </button>
           <button
             className={classes.navBtn}
             aria-label="Next"
-            onClick={handleNext}
+            onClick={handleRight}
           >
             <MdChevronRight size={20} />
           </button>
