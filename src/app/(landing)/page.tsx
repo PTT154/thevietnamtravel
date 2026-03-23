@@ -1,5 +1,5 @@
 import classes from "./page.module.scss";
-import { Container, Stack } from "@mantine/core";
+import { Container } from "@mantine/core";
 
 import { LandingCarousel } from "@/components/primitives/landing-carousel/landing-carousel";
 import { SectionHeader } from "@/components/primitives/section-header/section-header";

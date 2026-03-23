@@ -70,7 +70,7 @@ export default function LandingFooterContainer() {
         <Container size="xl" classNames={{ root: classes.footerContainer }}>
           <Group justify="space-between" align="center">
             <Text className={classes.bottomText}>
-              Vietnam Travel © 2025 by VinaUp®
+              Vietnam Travel © 2026 by VinaUp®
             </Text>
             <Link href="/" className={classes.bottomLink}>
               <Text fz="1.1rem">Travel guides - Home</Text>
