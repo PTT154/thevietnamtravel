@@ -2,30 +2,32 @@
 
 import { useRef, useCallback } from "react";
 import type { MantineSpacing } from "@mantine/core";
-import { Text, Stack } from "@mantine/core";
+import { Stack } from "@mantine/core";
 import { EmblaCarouselType } from "embla-carousel";
-import classes from "./grid-carousel.module.scss"
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { Carousel } from "@mantine/carousel";
 
-interface GridCarouselProps<TourCategoryItem extends { id: string }> {
-  title?: string;
+import { SectionHeader } from "@/components/primitives/section-header/section-header";
+import classes from "./grid-carousel.module.scss"
+
+interface GridCarouselProps<T extends { id: string | number }> {
+  title: string;
   subtitle?: string;
-  data: TourCategoryItem[];
-  renderItem: (item: TourCategoryItem) => React.ReactNode;
+  data: T[];
+  renderItem: (item: T) => React.ReactNode;
   rows?: number;
   rowGap?: MantineSpacing;
   slideGap?: MantineSpacing;
-  slideSize?: {
-    base?: string;
-    sm?: string;
-    md?: string;
-    lg?: string;
-    xl?: string;
+  slideSize?: string | number | {
+    base?: string | number;
+    sm?: string | number;
+    md?: string | number;
+    lg?: string | number;
+    xl?: string | number;
   };
 }
 
-export default function GridCarousel<TourCategoryItem extends { id: string }>({
+export default function GridCarousel<T extends { id: string | number }>({
   title,
   subtitle,
   data,
@@ -34,45 +36,44 @@ export default function GridCarousel<TourCategoryItem extends { id: string }>({
   rowGap = "lg",
   slideGap = "lg",
   slideSize = { base: "50%", sm: "33.333%", md: "25%", lg: "20%" },
-}: GridCarouselProps<TourCategoryItem> ) {
+}: GridCarouselProps<T>) {
   const emblaRef = useRef<EmblaCarouselType | null>(null);
 
   const handleRight = useCallback(() => emblaRef.current?.scrollPrev(), []);
   const handleLeft = useCallback(() => emblaRef.current?.scrollNext(), []);
 
-  const columns: TourCategoryItem[][] = [];
+  const columns: T[][] = [];
   for (let i = 0; i < data.length; i += rows) {
     columns.push(data.slice(i, i + rows));
   }
 
+  const navButtons = (
+    <div className={classes.navButtons}>
+      <button
+        className={classes.navBtn}
+        aria-label="Previous"
+        onClick={handleLeft}
+      >
+        <MdChevronLeft size={20} />
+      </button>
+      <button
+        className={classes.navBtn}
+        aria-label="Next"
+        onClick={handleRight}
+      >
+        <MdChevronRight size={20} />
+      </button>
+    </div>
+  )
+
   return (
     <div className={classes.section}>
-      <div className={classes.sectionHeader}>
-        <div className={classes.headerLeft}>
-          <h1 className={classes.pageTitle}>{title}</h1>
-        </div>
-        <div className={classes.navButtons}>
-          <button
-            className={classes.navBtn}
-            aria-label="Previous"
-            onClick={handleLeft}
-          >
-            <MdChevronLeft size={20} />
-          </button>
-          <button
-            className={classes.navBtn}
-            aria-label="Next"
-            onClick={handleRight}
-          >
-            <MdChevronRight size={20} />
-          </button>
-        </div>
-      </div>
-      {subtitle && (
-        <Text lh={1.5} fz="lg" className={classes.pageSubtitle}>
-          {subtitle}
-        </Text>
-      )}
+      <SectionHeader
+        title={title}
+        subtitle={subtitle}
+        rightSection={navButtons}
+      />
+
       <Carousel
         getEmblaApi={(embla) => {
           emblaRef.current = embla;

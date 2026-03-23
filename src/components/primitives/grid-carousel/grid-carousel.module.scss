@@ -49,14 +49,15 @@
         flex-direction: column;
         gap: 0.25rem;
     }
+}
 
-    .navButtons {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        padding-top: 0.25rem;
-        flex-shrink: 0;
-    }
+.navButtons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding-top: 0.25rem;
+    flex-shrink: 0;
+
 
     .navBtn {
         width: 2.25rem;

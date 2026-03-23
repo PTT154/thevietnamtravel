@@ -1,10 +1,9 @@
 'use client';
 
-import { Grid, Stack, Text, Title, Box, Group } from '@mantine/core';
+import { Grid, Stack, Text, Title, Box, Center } from '@mantine/core';
 import Image from 'next/image';
-import { MdArrowOutward } from 'react-icons/md'; // Icon mũi tên chéo
 import classes from './channel-info.module.scss';
-import Link from 'next/link';
+import LogoIcon from '@/app/favicon.ico';
 
 const SERVICES = [
   {
@@ -21,25 +20,15 @@ const SERVICES = [
   }
 ];
 
-interface ChannelInfoSectionProps {
-  imageWidth?: number | string;
-  imageHeight?: number | string;
-}
-
-export default function ChannelInfoSection({
-  imageWidth = 5,
-  imageHeight = 7,
-}: ChannelInfoSectionProps) {
-  
-  const imageAspectRatio = `${imageWidth} / ${imageHeight}`;
+export default function ChannelInfoSection() {
 
   return (
     <Box component="section">
       <Grid align="center">
         {/* Cột trái (Nội dung) */}
-        <Grid.Col span={{ base: 12, md: 9 }}>
-          <Stack gap="xl" style={{ maxWidth: '900px' }}>
-            <Stack gap={50}>
+        <Grid.Col span={{ base: 12, md: 8 }}>
+          <Stack gap="xl" style={{ maxWidth: '800px' }}>
+            <Stack gap={40}>
               {SERVICES.map((service, index) => (
                 <Box key={index}>
                   <Title order={3} className={classes.serviceTitle} mb={8}>
@@ -55,8 +44,8 @@ export default function ChannelInfoSection({
         </Grid.Col>
 
         {/* Cột phải (Hình ảnh) */}
-        <Grid.Col span={{ base: 12, md: 3 }}>
-          <Box 
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          {/* <Box 
             component={Link}
             href="#"
             className={classes.imageWrapper} 
@@ -74,7 +63,19 @@ export default function ChannelInfoSection({
               <Text fw={400} size="xl" c="white">Vietnam agencies</Text>
               <MdArrowOutward color="white" size={24} />
             </Group>
-          </Box>
+          </Box> */}
+          <Center h="100%">
+            <Box className={classes.logoWrapper}>
+              <Image
+                src={LogoIcon}
+                alt="LogoIcon"
+                width={450}
+                height={450}
+                priority
+                className={classes.logoImage}
+              />
+            </Box>
+          </Center>
         </Grid.Col>
       </Grid>
     </Box>

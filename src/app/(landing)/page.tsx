@@ -1,15 +1,18 @@
 import classes from "./page.module.scss";
-import { Container } from "@mantine/core";
+import { Container, Stack } from "@mantine/core";
 
 import { LandingCarousel } from "@/components/primitives/landing-carousel/landing-carousel";
-import ToursGrid from "@/components/grids/tours-grid/tours-grid";
-import Ads from "@/components/ads/Ads";
 import { SectionHeader } from "@/components/primitives/section-header/section-header";
 import AgenciesSection from "@/components/primitives/agencies-section/agencies-section";
 import ChannelInfoSection from "@/components/channel-info/channel-info";
 import PopularDestinationsSection from "@/components/primitives/popular-destinations/popular-destinations";
 
-import { MOCK_SLIDES, MOCK_TOUR_CATEGORIES } from "@/mocks/landing-mock-data";
+import { MOCK_SLIDES } from "@/mocks/landing-mock-data";
+import { MOCK_TOUR_GRID_ITEMS } from "@/mocks/tour-grid-data";
+import { SeeAllLink } from "@/components/primitives/see-all-link/see-all-link";
+import ItemGrid from "@/components/grids/items-grid/item-grid";
+import { MOCK_SUPPLIER_GRID_ITEMS } from "@/mocks/supplier-mock-data";
+import SupplierGrid from "@/components/grids/supplier-grid/supplier-grid";
 
 export default async function LandingPage() {
   return (
@@ -17,13 +20,19 @@ export default async function LandingPage() {
       <Container size="xl" classNames={{ root: classes.landingContainer }}>
         <LandingCarousel slides={MOCK_SLIDES} />
 
-        <ToursGrid
-          title="Vietnam Travel Types"
-          subtitle="Welcome to website, where we showcase a wide variety of tours offered by carefully selected and trusted travel agents."
-          toursData={MOCK_TOUR_CATEGORIES}
+        <SupplierGrid
+          title="Vietnam travel supplier information"
+          subtitle="Providing information about local tourism services in Vietnam: Tours, restaurants, attractions... recommended directly by sales staff from the providers."
+          data={MOCK_SUPPLIER_GRID_ITEMS}
         />
 
-        <Ads imageUrl="/mock-images/mock-ads.jpg" alt="Ads" />
+        <ItemGrid
+          title="Vietnam Travel Types"
+          subtitle="Welcome to website, where we showcase a wide variety of tours offered by carefully selected and trusted travel agents."
+          data={MOCK_TOUR_GRID_ITEMS}
+        />
+
+        {/* <Ads imageUrl="/mock-images/mock-ads.jpg" alt="Ads" /> */}
       </Container>
 
       <Container
@@ -34,7 +43,7 @@ export default async function LandingPage() {
         <SectionHeader
           title="The best Vietnam Agencies"
           subtitle="These are well thought of travel companies that we have verified"
-          href="/agencies"
+          rightSection={<SeeAllLink href="/agencies" />}
         />
       </Container>
       <AgenciesSection />
@@ -47,9 +56,9 @@ export default async function LandingPage() {
         <SectionHeader
           title="Vietnam Travel Channel"
           subtitle="The travel services offered on this website include a wide range of interconnected and linked options."
-          href="/channel"
+          rightSection={<SeeAllLink href="/channel" />}
         />
-        <ChannelInfoSection imageWidth={6} imageHeight={8} />
+        <ChannelInfoSection />
       </Container>
       <PopularDestinationsSection />
     </>
