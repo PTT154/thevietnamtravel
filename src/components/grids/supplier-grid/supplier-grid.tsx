@@ -13,7 +13,7 @@ interface SupplierGridProps {
 
 export default function SupplierGrid({ title, subtitle, data }: SupplierGridProps) {
   return (
-    <div style={{paddingTop: "3rem"}}>
+    <div style={{ paddingTop: "3rem" }}>
       {/* Tiêu đề chính H1 căn giữa */}
       <CentricHeader title={title} subtitle={subtitle} />
 
@@ -21,10 +21,10 @@ export default function SupplierGrid({ title, subtitle, data }: SupplierGridProp
       <Grid gutter={{ base: 15, sm: 20, md: 20 }} justify="center">
         {data.map((item) => (
           <Grid.Col key={item.id} span={{ base: 6, sm: 6, md: 3 }}>
-            <GridImageCard 
-              title={item.title} 
+            <GridImageCard
+              title={item.title}
               imageUrl={item.imageUrl || "/images/placeholder.png"}
-              href={item.href} 
+              href={item.href}
             />
           </Grid.Col>
         ))}

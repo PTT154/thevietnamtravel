@@ -37,9 +37,9 @@ export function LandingCarousel({
   // Validate and normalize slides array
   const validSlides = Array.isArray(slides)
     ? slides.filter((slide) => {
-        if (!slide || typeof slide !== "object") return false;
-        return true;
-      })
+      if (!slide || typeof slide !== "object") return false;
+      return true;
+    })
     : slides;
   // Early return if no valid slides
   if (validSlides.length === 0) {

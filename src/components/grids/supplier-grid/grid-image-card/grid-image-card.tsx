@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Route } from 'next';
 import classes from './grid-image-card.module.scss';
 
-// Định nghĩa Interface riêng cho Card để linh hoạt
 interface GridImageCardProps {
   title: string;
   imageUrl: string;

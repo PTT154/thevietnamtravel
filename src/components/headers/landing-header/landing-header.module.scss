@@ -10,12 +10,15 @@
     font-weight: 700;
     font-size: 2rem;
     color: var(--vinaup-green);
+
     @media screen and (max-width: 440px) {
       font-size: 1.6rem;
     }
+
     @media screen and (max-width: 380px) {
       font-size: 1.4rem;
     }
+
     @media screen and (max-width: 360px) {
       font-size: 1.2rem;
     }
@@ -42,6 +45,7 @@
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 500;
+
     @media screen and (max-width: 768px) {
       display: none;
     }

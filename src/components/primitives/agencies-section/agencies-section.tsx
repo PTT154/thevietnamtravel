@@ -3,17 +3,17 @@
 import { Box, Stack } from "@mantine/core";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-import { PARTNER_LOGOS } from "@/mocks/landing-mock-data";
+import { PARTNER_LOGOS } from "@/mocks/partner-mock-logo";
 import classes from "./agencies-section.module.scss";
 
 export default function AgenciesSection() {
   return (
     <Stack gap="xl" className={classes.sectionWrapper}>
       {/* Hàng 1 */}
-      <Marquee 
-        direction="right" 
+      <Marquee
+        direction="right"
         speed={50}
-        pauseOnHover={true} 
+        pauseOnHover={true}
         autoFill={true}
       >
         {PARTNER_LOGOS.map((logo, index) => (
@@ -30,10 +30,10 @@ export default function AgenciesSection() {
       </Marquee>
 
       {/* Hàng 2 */}
-      <Marquee 
-        direction="left" 
-        speed={50} 
-        pauseOnHover={true} 
+      <Marquee
+        direction="left"
+        speed={50}
+        pauseOnHover={true}
         autoFill={true}
       >
         {PARTNER_LOGOS.map((logo, index) => (

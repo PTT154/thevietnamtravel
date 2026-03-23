@@ -30,9 +30,9 @@ export default function LocationSelector() {
   };
 
   return (
-    <Popover 
-      width="target" 
-      position="bottom" 
+    <Popover
+      width="target"
+      position="bottom"
       offset={12}
       shadow="md"
       classNames={{ dropdown: classes.popoverDropdown }}
@@ -54,7 +54,7 @@ export default function LocationSelector() {
         <Text fw={600} size="lg" className={classes.dropdownTitle}>
           Destinations
         </Text>
-        
+
         <div className={classes.dropdownContainer}>
           {VN_PROVINCES.map((province) => {
             const isSelected = selected.includes(province);

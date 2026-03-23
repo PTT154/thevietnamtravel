@@ -13,6 +13,7 @@ import { SeeAllLink } from "@/components/primitives/see-all-link/see-all-link";
 import ItemGrid from "@/components/grids/items-grid/item-grid";
 import { MOCK_SUPPLIER_GRID_ITEMS } from "@/mocks/supplier-mock-data";
 import SupplierGrid from "@/components/grids/supplier-grid/supplier-grid";
+import ParallaxSection from "@/components/primitives/parallax-section/parallax-section";
 
 export default async function LandingPage() {
   return (
@@ -46,20 +47,36 @@ export default async function LandingPage() {
           rightSection={<SeeAllLink href="/agencies" />}
         />
       </Container>
+
       <AgenciesSection />
 
-      <Container
-        size="xl"
-        py={"3rem"}
-        classNames={{ root: classes.landingContainer }}
+      <ParallaxSection
+        backgroundImage="/mock-images/z6005041616453_ab9be89ca94e5e8d8caff5c6cbd85233-1.jpg"
+        overlayOpacity={0.6}
+        py={"0"}
+        mt={"3rem"}
       >
-        <SectionHeader
-          title="Vietnam Travel Channel"
-          subtitle="The travel services offered on this website include a wide range of interconnected and linked options."
-          rightSection={<SeeAllLink href="/channel" />}
-        />
-        <ChannelInfoSection />
-      </Container>
+        <Container
+          size="xl"
+          py={"3rem"}
+          classNames={{ root: classes.landingContainer }}
+        >
+          <SectionHeader
+            title="Vietnam Travel Channel"
+            subtitle="The travel services offered on this website include a wide range of interconnected and linked options."
+            rightSection={
+              <SeeAllLink
+                href="/channel"
+                color="var(--vinaup-green-light)"
+              />
+            }
+            titleColor="var(--vinaup-green-light)"
+            subTitleColor="var(--vinaup-white)"
+          />
+          <ChannelInfoSection />
+        </Container>
+      </ParallaxSection>
+
       <PopularDestinationsSection />
     </>
   );

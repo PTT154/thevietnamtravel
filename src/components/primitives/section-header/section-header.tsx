@@ -5,17 +5,19 @@ interface SectionHeaderProps {
   title: string;
   subtitle?: string;
   rightSection?: React.ReactNode;
+  titleColor?: string;
+  subTitleColor?: string;
 }
 
-export function SectionHeader({ title, subtitle, rightSection }: SectionHeaderProps) {
+export function SectionHeader({ title, titleColor, subtitle, subTitleColor, rightSection }: SectionHeaderProps) {
   return (
     <Stack gap={4} mb="1.5rem" className={classes.headerContainer}>
       {/* Title and Right Section */}
       <Group justify="space-between" align="center">
-        <Title order={2} className={classes.title}>
+        <Title order={2} className={classes.title} style={{ color: titleColor || 'var(--vinaup-green)' }}>
           {title}
         </Title>
-        
+
         {rightSection && (
           <div className={classes.rightSection}>
             {rightSection}
@@ -25,7 +27,7 @@ export function SectionHeader({ title, subtitle, rightSection }: SectionHeaderPr
 
       {/* Subtitle */}
       {subtitle && (
-        <Text className={classes.subtitle}>
+        <Text className={classes.subtitle} style={{ color: subTitleColor || 'var(--vinaup-text)' }}>
           {subtitle}
         </Text>
       )}

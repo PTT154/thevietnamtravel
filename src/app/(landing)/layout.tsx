@@ -9,12 +9,12 @@ export default async function LandingLayout({
   children: React.ReactNode;
 }) {
   return (
-      <div className={classes.landingLayout}>
-        <Container size="xl" classNames={{ root: classes.landingContainer }}>
-          <LandingHeader />
-        </Container>
-        {children}
-        <LandingFooter />
-      </div>
+    <div className={classes.landingLayout}>
+      <Container size="xl" classNames={{ root: classes.landingContainer }}>
+        <LandingHeader />
+      </Container>
+      {children}
+      <LandingFooter />
+    </div>
   );
 }

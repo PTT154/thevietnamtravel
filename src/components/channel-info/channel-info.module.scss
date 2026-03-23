@@ -1,11 +1,11 @@
 .serviceTitle {
-  color: var(--vinaup-green);
+  color: var(--vinaup-green-light);
   font-weight: 700;
   font-size: clamp(1.3rem, 4vw, 1.8rem);
 }
 
 .serviceDesc {
-  color: var(--vinaup-text);
+  color: var(--vinaup-white);
   line-height: 2.0;
   font-size: clamp(1.1rem, 2vw, 1.25rem);
 }
@@ -29,7 +29,7 @@
 }
 
 .logoImage {
-  width: 100% !important; 
+  width: 100% !important;
   height: auto !important;
   max-width: 100%;
   display: block;

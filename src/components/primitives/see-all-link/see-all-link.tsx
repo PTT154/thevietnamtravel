@@ -8,20 +8,22 @@ interface SeeAllLinkProps {
   href: string;
   label?: string;
   iconSize?: number;
+  color?: string;
 }
 
 export function SeeAllLink({
   href,
   label = "All",
   iconSize = 26,
+  color = "var(--vinaup-green)",
 }: SeeAllLinkProps) {
   return (
     <Link href={href as Route} className={classes.actionGroup}>
       <Group gap={8} align="center">
-        <Text component="span" className={classes.allLink}>
+        <Text component="span" className={classes.allLink} style={{ color: color }}>
           {label}
         </Text>
-        <LayoutSquare size={iconSize} />
+        <LayoutSquare size={iconSize} stroke={color} />
       </Group>
     </Link>
   );
