@@ -39,8 +39,8 @@ export default function GridCarousel<T extends { id: string | number }>({
 }: GridCarouselProps<T>) {
   const emblaRef = useRef<EmblaCarouselType | null>(null);
 
-  const handleRight = useCallback(() => emblaRef.current?.scrollPrev(), []);
-  const handleLeft = useCallback(() => emblaRef.current?.scrollNext(), []);
+  const handlePrev = useCallback(() => emblaRef.current?.scrollPrev(), []);
+  const handleNext = useCallback(() => emblaRef.current?.scrollNext(), []);
 
   const columns: T[][] = [];
   for (let i = 0; i < data.length; i += rows) {
@@ -52,14 +52,14 @@ export default function GridCarousel<T extends { id: string | number }>({
       <button
         className={classes.navBtn}
         aria-label="Previous"
-        onClick={handleLeft}
+        onClick={handlePrev}
       >
         <MdChevronLeft size={20} />
       </button>
       <button
         className={classes.navBtn}
         aria-label="Next"
-        onClick={handleRight}
+        onClick={handleNext}
       >
         <MdChevronRight size={20} />
       </button>
